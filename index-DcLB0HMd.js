@@ -21,7 +21,7 @@ var l=Object.defineProperty;var c=(r,e,t)=>e in r?l(r,e,{enumerable:!0,configura
                 width:56px;
                 height:56px;
                 text-indent:-9999px;
-                background: url('/kfcb.png') center / contain no-repeat;
+                background: url('kfcb.png') center / contain no-repeat;
                 order:0;
             }
             header button{
