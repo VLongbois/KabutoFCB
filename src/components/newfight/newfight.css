@@ -1,0 +1,28 @@
+h1{
+    text-align: center;
+}
+form{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+label{
+    display: block;
+    margin-bottom: 1rem;
+}
+input{
+    margin-left: 1rem;
+}
+button{
+    width: 60%;
+    align-self: center;
+    background-color: #197941;
+    border: none;
+    height: 40px;
+    margin-top: 3rem;
+    border-radius: 10px;
+}
+button:hover{
+    cursor: pointer;
+    background-color: #092D18;
+}

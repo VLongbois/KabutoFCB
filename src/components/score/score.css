@@ -1,0 +1,56 @@
+
+button{                
+    background:transparent;
+    border-style: none;
+}
+button:hover {
+    cursor: pointer;
+}
+#point{
+    position:relative;
+    font-size:8rem;
+    line-height:1;
+    text-align: center;
+    padding:1.5rem;
+}
+
+#advantage,#penality{
+    position:relative;
+    font-size:5rem;
+    line-height:1;
+    text-align: center;
+    padding:1rem;
+}
+#point button,#advantage button,#penality button{
+    position:absolute;
+    top:0;
+    width:50%;
+    height:100%;
+}
+#point-inc,#advantage-inc,#penality-inc{
+    left:50%;
+}
+#point-dec,#advantage-dec,#penality-dec{
+    left:0;
+}
+#advantage{color:#2bd471}
+#penality{color:#DD5662}
+@media (min-width: 576px) {
+    #point{
+        font-size:9rem;
+    }
+    #advantage,#penality{
+        font-size:6rem;
+    }
+}
+@media (min-width: 768px) {
+    #point{
+        font-size:10rem;
+    }
+    #advantage,#penality{
+        font-size:7rem;
+    }
+    #penality{
+        margin-bottom:2rem;
+    }
+}
