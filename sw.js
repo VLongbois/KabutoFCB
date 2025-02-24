@@ -1,5 +1,5 @@
 self.addEventListener('install', function(event) {
-    const indexPage = new Request('https://vlongbois.github.io/KabutoFCB');
+    const indexPage = new Request('https://vlongbois.github.io/KabutoFCB/');
     event.waitUntil(
     fetch(indexPage).then(function(response) {
     return caches.open('pwabuilder-offline').then(function(cache) {

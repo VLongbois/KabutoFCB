@@ -1,31 +1,63 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8"/>
-    <link rel="manifest" href="manifest-C8O6i60-.json">
-    <link rel="icon" type="image/svg+xml" href="favicon.ico" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Points: Kabuto Fight Club Bressuire</title>
-    <script type="module" crossorigin src="index-DcLB0HMd.js"></script>
-    <link rel="stylesheet" crossorigin href="index-Cl2Lo8NI.css">
-  </head>
-  <body>
-    <kfcb-header></kfcb-header>
-    <main>
-      <kfcb-app></kfcb-app>
-    </main>
-    <script type="text/javascript">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="manifest" href="manifest-C8O6i60-.json">
+  <link rel="icon" type="image/svg+xml" href="favicon.ico" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Points: Kabuto Fight Club Bressuire</title>
+  <script type="module" crossorigin src="index-DcLB0HMd.js"></script>
+  <link rel="stylesheet" crossorigin href="index-Cl2Lo8NI.css">
+</head>
+
+<body>
+  <button id="installPWA" style="display: none; padding: 10px 20px; font-size: 16px;">
+    Installer l'application
+  </button>
+  <kfcb-header></kfcb-header>
+  <main>
+    <kfcb-app></kfcb-app>
+  </main>
+
+  <script type="text/javascript">
+    let deferredPrompt;
+
+    window.addEventListener("beforeinstallprompt", (event) => {
+      event.preventDefault();
+      deferredPrompt = event;
+      document.getElementById("installPWA").style.display = "block";
+    });
+
+    document.getElementById("installPWA").addEventListener("click", async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === "accepted") {
+          console.log("L'utilisateur a installé la PWA");
+        } else {
+          console.log("L'utilisateur a refusé d'installer la PWA");
+        }
+        deferredPrompt = null;
+      }
+    });
+
+    window.addEventListener("appinstalled", () => {
+      console.log("PWA installée !");
+      document.getElementById("installPWA").style.display = "none";
+    });
     if (navigator.serviceWorker.controller) {
       console.log('[PWA Builder] active service worker found, no need to register')
-      } else {
+    } else {
       navigator.serviceWorker.register('sw.js', {
-      scope: 'https://vlongbois.github.io/KabutoFCB/'
-      }).then(function(reg) {
-      console.log('Service worker has been registered for scope:'+ reg.scope);
+        scope: 'https://vlongbois.github.io/KabutoFCB/'
+      }).then(function (reg) {
+        console.log('Service worker has been registered for scope:' + reg.scope);
       });
     }
-    </script>
+  </script>
 
-  </body>
+</body>
+
 </html>
