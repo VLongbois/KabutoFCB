@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="fr">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <link rel="manifest" href="manifest-C8O6i60-.json">
     <link rel="icon" type="image/svg+xml" href="favicon.ico" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Points: Kabuto Fight Club Bressuire</title>
     <script type="module" crossorigin src="index-DcLB0HMd.js"></script>
@@ -15,11 +16,16 @@
       <kfcb-app></kfcb-app>
     </main>
     <script type="text/javascript">
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("sw.js")
-            .then(() => console.log("Service Worker enregistré !"))
-            .catch((error) => console.error("Service Worker erreur :", error));
+    if (navigator.serviceWorker.controller) {
+      console.log('[PWA Builder] active service worker found, no need to register')
+      } else {
+      navigator.serviceWorker.register('sw.js', {
+      scope: 'https://vlongbois.github.io/KabutoFCB'
+      }).then(function(reg) {
+      console.log('Service worker has been registered for scope:'+ reg.scope);
+      });
     }
     </script>
+
   </body>
 </html>
