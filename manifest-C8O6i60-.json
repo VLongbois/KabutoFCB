@@ -3,8 +3,8 @@
     "short_name": "KFCB",
     "start_url": "index.html",
     "display": "standalone",
-    "background_color": "#242424e5",
-    "theme_color": "#d42c3b",
+    "background_color": "#d42c3b",
+    "theme_color": "#242424e5",
     "icons": [
       {
         "src": "kfcb-192.png",
